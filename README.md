@@ -2,7 +2,7 @@
 This is a <b>2D orthogonal elliptic grid generator</b> which uses the <b>Winslow (modified Laplace) partial differential equations</b>. 
 It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The grid generator is packaged as a Java program which can be compiled and exectuted via the command line. The program allows one to choose
 from six different boundary types: rectangular, gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
-specify the coordinates of the grid domain (warning: the domain must be perfectly square). Finally, one can choose to add refinements
+specify the coordinates of the grid domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
 to the grid, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course grid and iteratively refine it to produce a <b>smooth grid</b> with the given parameters and refinement options. A detailed analysis of the quality of the resulting grid will also be provided. 
 
 ## Elliptic Grid Generation Algorithm
