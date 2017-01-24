@@ -1,5 +1,5 @@
-# 2D Orthogonal Grid Generator
-This is a <b>2D orthogonal elliptic grid generator</b> which uses the <b>Winslow (modified Laplace) partial differential equations</b>. 
+# 2D Elliptic Mesh Generator
+This is a <b>2D orthogonal elliptic mesh generator</b> which uses the <b>Winslow (modified Laplace) partial differential equations</b>. 
 It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The grid generator is packaged as a Java program which can be compiled and exectuted via the command line. The program allows one to choose
 from six different boundary types: rectangular, gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
 specify the coordinates of the grid domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
