@@ -6,7 +6,7 @@ specify the coordinates of the grid domain (<b><i>warning: the domain must be pe
 to the grid, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course grid and iteratively refine it to produce a <b>smooth grid</b> with the given parameters and refinement options. A distinct feature of the elliptic grid solver is that <b>corrects overlapping and misplaced gridlines</b> very well. A detailed analysis of the quality of the resulting grid will also be provided. 
 
 ## Screenshots
-Here are some examples of grids generated with the program (<b><i>initial</i></b> in <b>blue</b> and <b>final </b>in <b><i>green</i></b>):
+Here are some examples of grids generated with the program (<b><i>initial</i></b> in <b>blue</b> and <b><i>final</i></b> in <b>green</b>):
 
 <p align="center"><img src ="https://cloud.githubusercontent.com/assets/16710726/22316883/234eed46-e33e-11e6-8913-56a7a99bd28b.png" /></p>
 <p align="center"><img src ="https://cloud.githubusercontent.com/assets/16710726/22316880/234d9f72-e33e-11e6-8e5b-9222c5ea2d6d.png" /></p>
