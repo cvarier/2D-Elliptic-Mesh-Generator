@@ -3,7 +3,7 @@ This is a powerful <b>2D orthogonal elliptic mesh generator</b> which uses the <
 It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The grid generator is packaged as a Java program which can be compiled and exectuted via the command line. The program allows one to choose
 from six different boundary types: rectangular, gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
 specify the coordinates of the grid domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
-to the grid, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course grid and iteratively refine it to produce a <b>smooth grid</b> with the given parameters and refinement options. A distinct feature of the elliptic grid solver is that <b>corrects overlapping and misplaced gridlines</b> very well. A detailed analysis of the quality of the resulting grid will also be provided. 
+to the grid, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course grid and iteratively refine it to produce a <b>smooth grid</b> with the given parameters and refinement options. A distinct feature of the elliptic grid solver is that it <b>corrects overlapping and misplaced gridlines</b> very well. A detailed analysis of the quality of the resulting grid will also be provided. 
 
 ## Screenshots
 Here are some examples of grids generated with the program (<b><i>initial</i></b> in <b>blue</b> and <b><i>final</i></b> in <b>green</b>):
