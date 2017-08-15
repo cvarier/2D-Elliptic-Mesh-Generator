@@ -1,7 +1,7 @@
 # 2D Elliptic Mesh Generator
 This is a powerful <b>2D orthogonal elliptic mesh generator</b> which uses the <b>Winslow (modified Laplace) partial differential equations</b>. 
-It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The grid generator is packaged as a Java program which can be compiled and exectuted via the command line. The program allows one to choose
-from six different boundary types: rectangular, gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
+It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The grid generator is packaged as a Java program which can be compiled and executed via the command line. The program allows one to choose
+from six different boundary types: rectangular, Gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
 specify the coordinates of the grid domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
 to the grid, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course grid and iteratively refine it to produce a <b>smooth grid</b> with the given parameters and refinement options. A distinct feature of the elliptic grid solver is that it <b>corrects overlapping and misplaced gridlines</b> very well. A detailed analysis of the quality of the resulting grid will also be provided. 
 
@@ -19,9 +19,9 @@ A more complete collection can be found within the screenshots folder.
 
 ## Elliptic Grid Generation Algorithm
 Firstly to construct an initial grid, the <b>Transfinite Interpolation algorithm</b> is applied to the given domain constrained by the
-specified boundary conditions. Next, the Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one dimensional line of nodes in the grid. This system of equations is then 
+specified boundary conditions. Next, the Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one-dimensional line of nodes in the grid. This system of equations is then 
 modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved using the <b>Thomas Tri-Diagonal Matrix
-Algorithm</b>. The solution to the current iteration is then further processed by the orthogonaliy adjustment algorithm and stretching
+Algorithm</b>. The solution to the current iteration is then further processed by the orthogonality adjustment algorithm and stretching
 function methods as necessary. The solver then calculates the solution for all other node lines and repeats the process until the difference between adjacent nodes meets a threshold convergence criteria.
 
 ## Orthogonality Adjustment Algorithm
