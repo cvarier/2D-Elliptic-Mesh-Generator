@@ -23,9 +23,12 @@ A more complete collection can be found within the screenshots folder.
 
 ## Elliptic Grid Generation Algorithm
 Firstly to construct an initial grid, the <b>Transfinite Interpolation algorithm</b> is applied to the given domain constrained by the
-specified boundary conditions. Next, the Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one-dimensional line of nodes in the grid. This system of equations is then 
-modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved using the <b>Thomas Tri-Diagonal Matrix
-Algorithm</b>. The solution to the current iteration is then further processed by the orthogonality adjustment algorithm and stretching
+specified boundary conditions. Next, the Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one-dimensional line of nodes in the grid. 
+
+This system of equations is then modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved using the <b>Thomas Tri-Diagonal Matrix
+Algorithm</b>. 
+
+The solution to the current iteration is then further processed by the orthogonality adjustment algorithm and stretching
 function methods as necessary. The solver then calculates the solution for all other node lines and repeats the process until the difference between adjacent nodes meets a threshold convergence criteria.
 
 ## Orthogonality Adjustment Algorithm
