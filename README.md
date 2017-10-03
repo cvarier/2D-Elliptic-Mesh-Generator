@@ -19,7 +19,7 @@ Here are some examples of grids generated with the program (<b><i>initial</i></b
 <p align="center"><img src ="https://cloud.githubusercontent.com/assets/16710726/22316974/d329dbf4-e33e-11e6-88b3-5b16058221a7.png" /></p>
 <p align="center"><img src ="https://cloud.githubusercontent.com/assets/16710726/22316973/d329c68c-e33e-11e6-8de2-8b475ad00936.png" /></p>
 
-A more complete collection can be found within the screenshots folder.
+A more complete collection can be found within the `Screenshots` folder.
 
 ## Elliptic Grid Generation Algorithm
 Firstly to construct an initial grid, the <b>Transfinite Interpolation algorithm</b> is applied to the given domain constrained by the
