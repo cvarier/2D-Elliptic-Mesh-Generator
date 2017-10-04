@@ -89,7 +89,7 @@ In the above list, "angle" refers to the angle of intersection of grid lines at 
 © Chaitanya Varier 2017. This software is protected under the MIT License.
 
 ## Context and Acknowledgement
-This software was independently written for Prof. Jonathon Sumner at Dawson College as part of a research internship, who provided me with invaluable mentorship and advice throughout the course of my research.
+I wrote this software independently for Prof. Jonathon Sumner at Dawson College as part of a research internship, who provided me with invaluable mentorship and advice throughout the course of my research.
 
 ## References
 I gleaned all the necessary mathematical knowledge for completing this project from the following sources:
