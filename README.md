@@ -80,7 +80,7 @@ In order to further improve the quality of the
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162397-29a18d7e-a8ab-11e7-910c-34050762fdf6.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162408-40ed191c-a8ab-11e7-86bb-f82e3f92fe87.gif" /></p>
 
-where *f<sub>1</sub>* *f<sub>2</sub>* are the stretching functions of <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> respectively. This slightly modifies the solution process by changing the values of the matrix coefficients in the TDMA setup.
+where *f<sub>1</sub>* and *f<sub>2</sub>* are the stretching functions of <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> respectively. This slightly modifies the solution process by changing the values of the matrix coefficients in the TDMA setup.
 
 ## Grid Quality Analysis Report
 In order to determine the quality of the resulting mesh, it was necessary to construct an objective means of quality measurement. Therefore, several <b>statistical procedures</b> were implemented in the program to produce a <b>meaningful grid quality analysis report</b>. The metrics which are presented are divided into the following categories:
