@@ -71,7 +71,7 @@ The same process is applied to the three oppositely adjacent nodes. From this, a
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31161932-6a369012-a8a8-11e7-994c-ba75d709aedd.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162043-214b9144-a8a9-11e7-9905-252cfce64f09.gif" /></p>
 
-for the vertical grid line *V* and the horizontal grid line *H* at a given iteration *k*.
+for the vertical grid line *V* and the horizontal grid line *H* at a given iteration *k*. Thus, this system is solved iteratively for each grid node in the same line-by-line fashion as the Winslow system solver.
 
 ## Stretching Functions
 In order to further improve the quality of the 
