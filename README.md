@@ -23,7 +23,13 @@ A more complete collection can be found within the `Screenshots` folder.
 
 ## Elliptic Grid Generation Algorithm
 Firstly to construct an initial grid, the <b>Transfinite Interpolation algorithm</b> is applied to the given domain constrained by the
-specified boundary conditions. Next, the Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one-dimensional line of nodes in the grid. 
+specified boundary conditions. This algorithm is implemented by mapping each point within the domain (regardless of the boundaries) to a new domain existing within the boundaries. This algorithm works by iteratively solving the following parametric vector equation:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31158969-99999b48-a893-11e7-8c8f-f625ff310829.gif" /></p>
+
+Where <img src ="https://user-images.githubusercontent.com/16710726/31159037-0afef594-a894-11e7-9bda-406151b5590b.gif" /> and <img src ="https://user-images.githubusercontent.com/16710726/31159055-3326d938-a894-11e7-95c2-97329c6cd80f.gif" /> represent parameters in the original domain and <img src="https://user-images.githubusercontent.com/16710726/31159084-6cb8a92e-a894-11e7-8ec6-b92841c48b54.gif" />, <img src="https://user-images.githubusercontent.com/16710726/31159087-810fd820-a894-11e7-8db0-22c5a7300895.gif" />, <img src="https://user-images.githubusercontent.com/16710726/31159103-9722f26e-a894-11e7-83de-ff8bb44f5a03.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159111-a60e2816-a894-11e7-803b-ede51eeac4b0.gif" /> represent the curves defining the left, top, right and bottom boundaries.
+
+Next, the Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one-dimensional line of nodes in the grid. 
 
 This system of equations is then modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved using the <b>Thomas Tri-Diagonal Matrix
 Algorithm</b>. 
