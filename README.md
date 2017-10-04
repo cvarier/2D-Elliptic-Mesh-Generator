@@ -7,7 +7,7 @@ from six different boundary types: rectangular, Gaussian, absolute value, greate
 specify the coordinates of the grid domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
 to the grid, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course grid and iteratively refine it to produce a <b>smooth grid</b> with the given parameters and refinement options. 
 
-A distinct feature of the elliptic grid solver is that it <b>corrects overlapping and misplaced gridlines</b> very well. A detailed analysis of the quality of the resulting grid will also be provided. 
+A distinct feature of the elliptic grid solver is that it <b>corrects overlapping and misplaced grid lines</b> very well. A detailed analysis of the quality of the resulting will also be provided. 
 
 ## Screenshots
 Here are some examples of grids generated with the program (<b><i>initial</i></b> in <b>blue</b> and <b><i>final</i></b> in <b>green</b>):
@@ -60,16 +60,22 @@ In several <b>computational fluid dynamics</b> applications, an orthogonal mesh 
 
 The implemented solution uses an iterative approach to find the angles of intersection and adjust the position of the nodes until their respective angles of intersection converge to a reasonable threshold value from 90 degrees. The exact method makes use of the <b>linear approximation</b> of the grid lines intersecting at each node within the grid. 
 
-A remarkable result from the research was the development of an accurate method for obtaining these linear approximations. This method consists of fitting a tilted parabola to three adjacent nodes using <b>coordinate transformations</b>. This results in the trigonometric function
+A remarkable result from the research was the development of an accurate method for obtaining these linear approximations. This method consists of fitting a tilted parabola to three adjacent nodes, which are defined as (*x<sub>1</sub>*, *y<sub>1</sub>*), (*x<sub>2</sub>*, *y<sub>2</sub>*) and the node in between these two. By applying <b>coordinate transformations</b>, we can obtain the the trigonometric function
 
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31161603-28f37b1c-a8a6-11e7-9b0c-08bddb27ed6a.gif" /></p>
 
 whose roots can be solved for using the bisection method, which represent the angular position of the parabola (can be improved with Newton's method). 
 
-The same process is applied to the three oppositely adjacent nodes. From this, a suitable linear approximation is obtained, and the adjustment is obtained by plugging the slopes of the two linear functions into the linear equation relating the two obtained by basic analytical geometry.
+The same process is applied to the three oppositely adjacent nodes. From this, a suitable linear approximation is obtained, and the adjustment is obtained by plugging the slopes of the two linear functions into the linear equation relating the two obtained by basic analytical geometry. This describes the system of equations
+
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31161932-6a369012-a8a8-11e7-994c-ba75d709aedd.gif" /></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162043-214b9144-a8a9-11e7-9905-252cfce64f09.gif" /></p>
+
+for the vertical grid line *V* and the horizontal grid line *H* at a given iteration *k*.
 
 ## Stretching Functions
-In order to further improve the quality of the grid, one can introduce <b>univariate stretching functions</b> to either compress or expand grid lines in order to correct non-uniformity where grid lines are more or less dense. These functions are arbitrarily chosen and only reflect the distribution of grid lines. Upon implementation, the Winslow system becomes a Poisson system, thereby slightly modifying the solution process by changing the values of the matrix coefficients.
+In order to further improve the quality of the 
+, one can introduce <b>univariate stretching functions</b> to either compress or expand grid lines in order to correct non-uniformity where grid lines are more or less dense. These functions are arbitrarily chosen and only reflect the distribution of grid lines. Upon implementation, the Winslow system becomes a Poisson system, thereby slightly modifying the solution process by changing the values of the matrix coefficients.
 
 ## Grid Quality Analysis Report
 In order to determine the quality of the resulting mesh, it was necessary to construct an objective means of quality measurement. Therefore, several <b>statistical procedures</b> were implemented in the program to produce a <b>meaningful grid quality analysis report</b>. The metrics which are presented are divided into the following categories:
