@@ -60,7 +60,11 @@ In several <b>computational fluid dynamics</b> applications, an orthogonal mesh 
 
 The implemented solution uses an iterative approach to find the angles of intersection and adjust the position of the nodes until their respective angles of intersection converge to a reasonable threshold value from 90 degrees. The exact method makes use of the <b>linear approximation</b> of the grid lines intersecting at each node within the grid. 
 
-A remarkable result from the research was the development of an accurate method for obtaining these linear approximations. This method consists of fitting a tilted parabola to three adjacent nodes using <b>coordinate transformations</b>. The resulting trigonometrically transformed equation of the parabola is solved using the bisection method for the angular position of the parabola (can be improved with Newton's method). 
+A remarkable result from the research was the development of an accurate method for obtaining these linear approximations. This method consists of fitting a tilted parabola to three adjacent nodes using <b>coordinate transformations</b>. This results in the trigonometric function
+
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31161603-28f37b1c-a8a6-11e7-9b0c-08bddb27ed6a.gif" /></p>
+
+whose roots can be solved for using the bisection method, which represent the angular position of the parabola (can be improved with Newton's method). 
 
 The same process is applied to the three oppositely adjacent nodes. From this, a suitable linear approximation is obtained, and the adjustment is obtained by plugging the slopes of the two linear functions into the linear equation relating the two obtained by basic analytical geometry.
 
