@@ -49,10 +49,10 @@ This set of equations are the elliptic PDEs known as the Winslow equations. Thes
 
 where *i* and *j* are the coordinates of a node in the grid in computational space. Here <img src="https://user-images.githubusercontent.com/16710726/31160826-788660d6-a8a1-11e7-9088-d36b7147147f.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31160836-8b33a8ba-a8a1-11e7-91ac-7c4a3c63fbf6.gif" /> are equal increments in <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> respectively.
 
-This system of equations is then modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved using the <b>Thomas Tri-Diagonal Matrix
-Algorithm</b>. 
+The coefficients for these equations can be generated for each grid point to form a system of linear equations, which is then modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved iteratively using the <b>Thomas Tri-Diagonal Matrix
+Algorithm</b> line-by-line by traversing from the bottom up.
 
-The solution to the current iteration is then further processed by the orthogonality adjustment algorithm and stretching
+The solution to the matrix generated from a single iteration can then be further processed by the orthogonality adjustment algorithm and stretching
 function methods as necessary. The solver then calculates the solution for all other node lines and repeats the process until the difference between adjacent nodes meets a threshold convergence criteria.
 
 ## Orthogonality Adjustment Algorithm
