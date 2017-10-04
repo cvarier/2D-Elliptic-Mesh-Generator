@@ -39,9 +39,15 @@ where <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a
 <p align="center">and</p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160011-2c9d829a-a89b-11e7-8efb-b28433e13e8f.gif" />,</p>
 
-where *g<sub>ij</sub>* is the covariant metric tensor at entry (*i*,*j*) within the matrix of covariant tensor components defining the mapping of the computational space coordinates <img src="https://user-images.githubusercontent.com/16710726/31160211-cb4fb862-a89c-11e7-8550-4873dc518b45.gif" /> onto the physical solution space coordinates (*x*,*y*). In this model, *x* and *y* are computed as functions of <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" />
+where *g<sub>ij</sub>* is the covariant metric tensor at entry (*i*,*j*) within the matrix of covariant tensor components defining the mapping of the computational space coordinates <img src="https://user-images.githubusercontent.com/16710726/31160211-cb4fb862-a89c-11e7-8550-4873dc518b45.gif" /> onto the physical solution space coordinates (*x*,*y*). In this model, *x* and *y* are computed as functions of <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" />.
 
-The Winslow equations are applied to the grid using the method of <b>mixed-order finite differences</b>, thereby generating a system of equations for each one-dimensional line of nodes in the grid. 
+This set of equations are the elliptic PDEs known as the Winslow equations. These are applied to the grid using the method of <b>mixed-order finite differences</b> on the partial derivatives (and tensor coefficients, as they are a function of these derivatives), thereby resulting in the equations (for a single node):
+
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160689-411dfede-a8a0-11e7-9aae-5e9c0de2d593.gif" /></p>
+<p align="center">and</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160760-d15b9650-a8a0-11e7-9e94-ef02a7e8a152.gif" />,</p>
+
+where *i* and *j* are the coordinates of a node in the grid in computational space. Here <img src="https://user-images.githubusercontent.com/16710726/31160826-788660d6-a8a1-11e7-9088-d36b7147147f.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31160836-8b33a8ba-a8a1-11e7-91ac-7c4a3c63fbf6.gif" /> are equal increments in <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> respectively.
 
 This system of equations is then modeled in matrix representation, resulting in a tri-diagonal matrix. This matrix is then solved using the <b>Thomas Tri-Diagonal Matrix
 Algorithm</b>. 
