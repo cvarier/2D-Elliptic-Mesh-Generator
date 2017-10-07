@@ -1,5 +1,5 @@
 # 2D Elliptic Mesh Generator
-This is a powerful <b>2D orthogonal elliptic mesh (grid) generator</b> which uses the <b>Winslow (modified Laplace) partial differential equations</b>.
+This is a powerful <b>2D orthogonal elliptic mesh (grid) generator</b> which uses the <b>Winslow partial differential equations</b>.
 It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The mesh generator is packaged as a Java program which can be compiled and executed via the command line. 
 
 The program allows one to choose
