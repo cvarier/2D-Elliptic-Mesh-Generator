@@ -152,7 +152,7 @@ The default stretching functions used in the program are
 <p align="center">and</p>
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335711-bfe475f2-acc1-11e7-8573-2032fa4f471c.gif" /></p>
 
-where |*∝*| << 1 and |*β*| << 1. In the context of this program, the parameters *∝* and *β*, when positive, indicate how much stretching occurs in the *x* and *y* directions respectively. When these values are negative, compression of grid lines will occur instead.
+where |*∝*| << 1 and |*β*| << 1. The parameters *∝* and *β*, when positive, indicate how much stretching occurs in the *x* and *y* directions respectively. When these values are negative, compression of grid lines will occur instead.
 
 ## Mesh Quality Analysis Report
 In order to determine the quality of the resulting mesh, it was necessary to construct an objective means of quality measurement. Therefore, several <b>statistical procedures</b> were implemented in the program to produce a <b>meaningful mesh quality analysis report</b>. The metrics which are presented are divided into the following categories:
