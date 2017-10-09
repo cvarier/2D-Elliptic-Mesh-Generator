@@ -92,7 +92,41 @@ The same process is applied to the three oppositely adjacent nodes. From this, a
 for the vertical grid line *V* and the horizontal grid line *H* at a given iteration *k*. Thus, this system is solved iteratively for each mesh node in the same line-by-line fashion as the Winslow system solver.
 
 ## Stretching Functions
-In order to further improve the quality of the mesh, one can introduce <b>univariate stretching functions</b> to either compress or expand grid lines in order to correct non-uniformity where grid lines are more or less dense. These functions are arbitrarily chosen and only reflect the distribution of grid lines. Upon implementation, the Winslow system becomes the Poisson system 
+In order to further improve the quality of the mesh, one can introduce <b>univariate stretching functions</b> to either compress or expand grid lines in order to correct non-uniformity where grid lines are more or less dense. These functions are arbitrarily chosen and only reflect the distribution of grid lines. 
+
+We can derive a new set of equations by combining our previously established differential model for grid generation and a set of univariate stretching functions of our choice. In order to do so in a straightforward manner, we can transform our Cartesian coordinates (*x*, *y*) to a new set of coordinates (*χ*, *σ*) which exist in a different space, *χσ*, called the parameter space. We define our stretching functions, *f<sub>1</sub>* and *f<sub>2</sub>* as onto and one-to-one univariate functions of *ξ* and *η* respectively. They are described as follows: 
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31361649-47fd6178-ad22-11e7-8721-ff9e2a12096b.gif" /></p>
+<p align="center">and</p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31361650-47fe6f82-ad22-11e7-8287-0efd31004c6a.gif" /></p>
+
+If we define the mapping from physical space to parameter space as the same elliptic system as before, we get the equations
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362584-45ee28b8-ad27-11e7-935d-4384b68feb87.gif" /></p>
+<p align="center">and</p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362576-3bf1b852-ad27-11e7-9ad8-4c4f02d03026.gif" /></p>
+
+To obtain an expression for this system, we can get the first order partial derivative with respect to *x* as so:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362595-519fe3ea-ad27-11e7-8ae7-43dc57faf68e.gif" /></p>
+
+Using the chain rule, we can get the second order partial derivative:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362604-5b86f588-ad27-11e7-9119-93f83a4c48f5.gif" /></p>
+
+Similarly for *y*, we get:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362625-6eed8c68-ad27-11e7-83d2-81542f8a89c0.gif" /></p>
+
+Adding the previous two equations, and rearranging, we get:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362634-8456d7f8-ad27-11e7-9a99-9a097dcbc75c.gif" /></p>
+
+Similarly for *η*, we get:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362664-b087ab86-ad27-11e7-9b18-1d69d0bf99f8.gif" /></p>
+
+However, we wish to solve the inverse problem as before, and thus in finding the inverse of these equations, we obtain the Poisson system 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162397-29a18d7e-a8ab-11e7-910c-34050762fdf6.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162408-40ed191c-a8ab-11e7-86bb-f82e3f92fe87.gif" /></p>
