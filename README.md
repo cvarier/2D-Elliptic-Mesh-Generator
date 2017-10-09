@@ -99,6 +99,22 @@ In order to further improve the quality of the mesh, one can introduce <b>univar
 
 where *f<sub>1</sub>* and *f<sub>2</sub>* are the stretching functions of <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> respectively. This slightly modifies the solution process by changing the values of the matrix coefficients in the TDMA setup.
 
+The discretized version of the new system is
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335263-c913f136-acbf-11e7-97a6-53dd0fa2a5d4.gif" /></p>
+<p align="center">and</p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335260-c6cf7332-acbf-11e7-9243-5a16ac75e1e7.gif" /></p>
+
+where the metric tensor coefficients are the same as before. 
+
+The default stretching functions used in the program are
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335711-bfe475f2-acc1-11e7-8573-2032fa4f471c.gif" /></p>
+<p align="center">and</p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335710-bfe3db2e-acc1-11e7-9e86-f5010fcbf04f.gif" /></p>
+
+where |*∝*| << 1 and |*β*| << 1. In the context of this program, the parameters *∝* and *β*, when positive, indicate how much stretching occurs in the *x* and *y* directions respectively. When these values are negative, compression of grid lines will occur instead.
+
 ## Mesh Quality Analysis Report
 In order to determine the quality of the resulting mesh, it was necessary to construct an objective means of quality measurement. Therefore, several <b>statistical procedures</b> were implemented in the program to produce a <b>meaningful mesh quality analysis report</b>. The metrics which are presented are divided into the following categories:
 
