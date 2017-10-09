@@ -17,7 +17,7 @@ Here are some examples of meshes generated with the program (<b><i>initial</i></
 <p align="center"><img src ="https://cloud.githubusercontent.com/assets/16710726/22316879/234c80c4-e33e-11e6-9d17-83fc904a4cd4.png" width= "410" height = "410"/><img src ="https://cloud.githubusercontent.com/assets/16710726/22316882/234ec23a-e33e-11e6-84b4-b82c847caa85.png" width= "400" height = "400"/></p>
 
 <p align="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src ="https://cloud.githubusercontent.com/assets/16710726/22316974/d329dbf4-e33e-11e6-88b3-5b16058221a7.png" width= "320" height = "320"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src ="https://cloud.githubusercontent.com/assets/16710726/22316973/d329c68c-e33e-11e6-8de2-8b475ad00936.png" width = "329" height = "320"/></p>
-
+<br></br>
 A more complete collection can be found within the `Screenshots` folder.
 
 ## Elliptic Mesh Generation Algorithm
