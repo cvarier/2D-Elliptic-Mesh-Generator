@@ -1,6 +1,6 @@
 # 2D Elliptic Mesh Generator
-This is a powerful <b>2D orthogonal elliptic mesh (grid) generator</b> which uses the <b>Winslow partial differential equations</b>.
-It also uses <b>univariate stretching functions</b> and a <b>tilted parabola tangent line fitter</b> (original discovery). The mesh generator is packaged as a Java program which can be compiled and executed via the command line. 
+This is a powerful <b>2D orthogonal elliptic mesh (grid) generator</b> which works by solving the <b>Winslow partial differential equations</b>.
+It is capable of modifying the meshes with <b>stretching functions</b> and an <b>orthogonality adjustment</b> algorithm. This algorithm works by calculating curve slopes using a tilted parabola tangent line fitter (original discovery). The mesh generator is packaged as a Java program which can be compiled and executed via the command line. 
 
 The program allows one to choose
 from six different boundary types: rectangular, Gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
@@ -20,6 +20,21 @@ Here are some examples of meshes generated with the program (<b><i>initial</i></
 
 
 A more complete collection can be found within the `Screenshots` folder.
+
+## Mathematical Framework
+The algorithms implemented in this project are mainly founded upon the principles of differential geometry and tensor calculus. The most fundamental concept behind the mathematics governing this project is the transition between coordinate systems in order to obtain the solution to partial differential equations in the most efficient manner possible. More specifically in the context of this project, this implies transforming a set of equations written in Cartesian coordinates to curvilinear coordinates. This concept can be extended to any number of spatial dimensions, which will later be shown. However, a two-dimensional solution was developed in order to demonstrate the feasibility of generating smooth elliptic grids with the described specifications.
+
+Consider a system of <i>n</i> dimensions which can be represented by the set of Cartesian coordinates <img src ="https://user-images.githubusercontent.com/16710726/31331568-d764704e-acb0-11e7-9bfe-f731ab10bc6a.gif" /> and the set of curvilinear coordinates <img src = "https://user-images.githubusercontent.com/16710726/31331564-d3a35088-acb0-11e7-9b25-68c3bcfdec27.gif"/>. We define the covariant metric tensor <i>g<sub>ij</sub></i> to be:
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31331597-00423ea6-acb1-11e7-896d-48ba46dd996d.gif"/></p>
+
+where each of the partial derivatives comes from the definition of the covariant base vectors. Each of these base bectors describe how one coordinate system changes with respect to another, when any particular coordinate is held fixed. For our two-dimensional problem, we can expand these sums to yield the following expressions for the metric tensors:
+
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31332560-d5ca47aa-acb4-11e7-9524-27911f357c6b.gif" /></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31332553-d0a63a04-acb4-11e7-80c7-b2340ca48d0f.gif" /></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31332548-cc300bb2-acb4-11e7-8c28-8129ebcd557d.gif" /></p>
+
+where (*x*, *y*) represents our Cartesian coordinate system and <img src="https://user-images.githubusercontent.com/16710726/31160211-cb4fb862-a89c-11e7-8550-4873dc518b45.gif" /> represents our curvilinear coordinate system. We could also define the contravariant base vectors and metric tensors if we wished to solve the inverse problem, which would be transitioning from curvilinear to Cartesian coordinates.
 
 ## Elliptic Mesh Generation Algorithm
 Firstly to construct an initial mesh, the <b>Transfinite Interpolation algorithm</b> is applied to the given domain constrained by the
