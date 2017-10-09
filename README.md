@@ -52,7 +52,7 @@ where <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a
 
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31159981-f7c7ad2a-a89a-11e7-9981-37efc81753c5.gif" /></p>
 <p align="center">and</p>
-<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160011-2c9d829a-a89b-11e7-8efb-b28433e13e8f.gif" />,</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160011-2c9d829a-a89b-11e7-8efb-b28433e13e8f.gif" /></p>
 
 where *g<sub>ij</sub>* is the covariant metric tensor at entry (*i*,*j*) within the matrix of covariant tensor components defining the mapping of the computational space coordinates <img src="https://user-images.githubusercontent.com/16710726/31160211-cb4fb862-a89c-11e7-8550-4873dc518b45.gif" /> onto the physical solution space coordinates (*x*,*y*). In this model, *x* and *y* are computed as functions of <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" />.
 
