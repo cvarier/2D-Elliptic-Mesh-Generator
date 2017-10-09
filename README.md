@@ -46,7 +46,7 @@ where <img src ="https://user-images.githubusercontent.com/16710726/31159037-0af
 
 At the heart of the solver is the mesh smoothing algorithm, which at a high level, works by solving the pair of Laplace equations
 
-<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31159558-f3981bd4-a897-11e7-9d1c-40bc4e531f6b.gif" />    and    <img src="https://user-images.githubusercontent.com/16710726/31159563-fbd4eaca-a897-11e7-9c79-5c77eb501134.gif" />,</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31159558-f3981bd4-a897-11e7-9d1c-40bc4e531f6b.gif" />    and    <img src="https://user-images.githubusercontent.com/16710726/31159563-fbd4eaca-a897-11e7-9c79-5c77eb501134.gif" /></p>
 
 where <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> represent the *x* and *y* coordinates of every point in the target domain, mapped to a transformed, computational space using the change of variables method. This renders the calculations simpler and faster to compute. However, we wish to solve the inverse problem, where we transition from the computational space to the curvilinear solution space. Using tensor mathematics, it can be shown that this problem entails solving the equations
 
