@@ -109,9 +109,9 @@ where the metric tensor coefficients are the same as before.
 
 The default stretching functions used in the program are
 
-<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335711-bfe475f2-acc1-11e7-8573-2032fa4f471c.gif" /></p>
-<p align="center">and</p>
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335710-bfe3db2e-acc1-11e7-9e86-f5010fcbf04f.gif" /></p>
+<p align="center">and</p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335711-bfe475f2-acc1-11e7-8573-2032fa4f471c.gif" /></p>
 
 where |*∝*| << 1 and |*β*| << 1. In the context of this program, the parameters *∝* and *β*, when positive, indicate how much stretching occurs in the *x* and *y* directions respectively. When these values are negative, compression of grid lines will occur instead.
 
