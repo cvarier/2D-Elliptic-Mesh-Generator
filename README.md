@@ -58,9 +58,9 @@ where *g<sub>ij</sub>* is the covariant metric tensor at entry (*i*,*j*) within 
 
 This set of equations are the elliptic PDEs known as the Winslow equations. These are applied to the mesh using the method of <b>mixed-order finite differences</b> on the partial derivatives (and tensor coefficients, as they are a function of these derivatives), thereby resulting in the equations (for a single node):
 
-<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160689-411dfede-a8a0-11e7-9aae-5e9c0de2d593.gif" /></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31333546-8439ea40-acb8-11e7-8a73-d6475b8cadbb.gif" /></p>
 <p align="center">and</p>
-<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31160760-d15b9650-a8a0-11e7-9e94-ef02a7e8a152.gif" />,</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/16710726/31333563-8dee7fb0-acb8-11e7-8dd2-680b72ad5227.gif" />,</p>
 
 where *i* and *j* are the coordinates of a node in the mesh in computational space. Here <img src="https://user-images.githubusercontent.com/16710726/31160826-788660d6-a8a1-11e7-9088-d36b7147147f.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31160836-8b33a8ba-a8a1-11e7-91ac-7c4a3c63fbf6.gif" /> are equal increments in <img src="https://user-images.githubusercontent.com/16710726/31160309-7a2a7b2e-a89d-11e7-8b7a-f7fd86db0e0d.gif" /> and <img src="https://user-images.githubusercontent.com/16710726/31159710-f8d219a0-a898-11e7-9195-7c403297e18f.gif" /> respectively.
 
