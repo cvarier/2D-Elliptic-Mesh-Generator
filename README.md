@@ -30,8 +30,8 @@ Consider a system of <i>n</i> dimensions which can be represented by the set of 
 
 where each of the partial derivatives comes from the definition of the covariant base vectors. Each of these base bectors describe how one coordinate system changes with respect to another, when any particular coordinate is held fixed. For our two-dimensional problem, we can expand these sums to yield the following expressions for the metric tensors:
 
-<p align="center">&nbsp&nbsp&nbsp&nbsp<img src="https://user-images.githubusercontent.com/16710726/31332560-d5ca47aa-acb4-11e7-9524-27911f357c6b.gif" /></p>
-<p align="center">&nbsp&nbsp&nbsp&nbsp<img src="https://user-images.githubusercontent.com/16710726/31332553-d0a63a04-acb4-11e7-80c7-b2340ca48d0f.gif" /></p>
+<p align="center">&nbsp&nbsp&nbsp<img src="https://user-images.githubusercontent.com/16710726/31332560-d5ca47aa-acb4-11e7-9524-27911f357c6b.gif" /></p>
+<p align="center">&nbsp&nbsp&nbsp<img src="https://user-images.githubusercontent.com/16710726/31332553-d0a63a04-acb4-11e7-80c7-b2340ca48d0f.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31332548-cc300bb2-acb4-11e7-8c28-8129ebcd557d.gif" /></p>
 
 where (*x*, *y*) represents our Cartesian coordinate system and <img src="https://user-images.githubusercontent.com/16710726/31160211-cb4fb862-a89c-11e7-8550-4873dc518b45.gif" /> represents our curvilinear coordinate system. We could also define the contravariant base vectors and metric tensors if we wished to solve the inverse problem, which would be transitioning from curvilinear to Cartesian coordinates.
