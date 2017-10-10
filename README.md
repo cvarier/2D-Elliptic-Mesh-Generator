@@ -182,7 +182,7 @@ In order to determine the quality of the resulting mesh, it was necessary to con
   * Average aspect ratio of all cells
   * Standard deviation of all aspect ratios
   
-In the above list, "angle" refers to the angle of intersection of grid lines at a node and "aspect ratio" refers to the skewness of a grid cell measured as a ratio of the height to the length of the cell.
+In the above list, "angle" refers to the angle of intersection of grid lines at a node and "aspect ratio" refers to the skewness of a grid cell measured as a ratio of the cell's longest side to its shortest side.
 
 ## Libraries Used
 * JMathPlot by Yann Richet
