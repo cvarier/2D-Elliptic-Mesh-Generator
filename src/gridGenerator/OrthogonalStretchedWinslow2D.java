@@ -104,39 +104,39 @@ public class OrthogonalStretchedWinslow2D {
 
         switch (boundaryType) {
 
-        case 1:
-            boundaryName = "rectangular";
-            break;
-        case 2:
-            boundaryName = "Gaussian hill";
-            System.out.println("\nEnter an amplitude scale factor [0-1]");
-            amplitude = in.nextDouble();
-            break;
-        case 3:
-            boundaryName = "absolute value";
-            System.out.println("\nEnter an amplitude");
-            amplitude = in.nextDouble();
-            break;
-        case 4:
-            boundaryName = "greatest integer (tessellated)";
-            System.out.println("\nEnter an amplitude");
-            amplitude = in.nextDouble();
-            System.out
-                    .println("\nEnter a stepsize (the greater, the wider the step)");
-            stepSize = in.nextDouble();
-            break;
-        case 5:
-            boundaryName = "forward step";
-            System.out.println("\nEnter a step height");
-            amplitude = in.nextDouble();
-            break;
-        case 6:
-            boundaryName = "semi-elliptical";
-            System.out.println("\nEnter an amplitude");
-            amplitude = in.nextDouble();
-            System.out.println("\nEnter a radius");
-            radius = in.nextDouble();
-            break;
+            case 1:
+                boundaryName = "rectangular";
+                break;
+            case 2:
+                boundaryName = "Gaussian hill";
+                System.out.println("\nEnter an amplitude scale factor [0-1]");
+                amplitude = in.nextDouble();
+                break;
+            case 3:
+                boundaryName = "absolute value";
+                System.out.println("\nEnter an amplitude");
+                amplitude = in.nextDouble();
+                break;
+            case 4:
+                boundaryName = "greatest integer (tessellated)";
+                System.out.println("\nEnter an amplitude");
+                amplitude = in.nextDouble();
+                System.out
+                        .println("\nEnter a stepsize (the greater, the wider the step)");
+                stepSize = in.nextDouble();
+                break;
+            case 5:
+                boundaryName = "forward step";
+                System.out.println("\nEnter a step height");
+                amplitude = in.nextDouble();
+                break;
+            case 6:
+                boundaryName = "semi-elliptical";
+                System.out.println("\nEnter an amplitude");
+                amplitude = in.nextDouble();
+                System.out.println("\nEnter a radius");
+                radius = in.nextDouble();
+                break;
 
         }
 
@@ -145,7 +145,7 @@ public class OrthogonalStretchedWinslow2D {
         in.nextLine();
 
         System.out
-                .println("\nDo you wish the solution grid to have its boundary orthogonalized? (y/n)");
+                .println("\nDo you wish for the solution grid to have its boundary orthogonalized? (y/n)");
 
         String oBInput = in.nextLine();
 
@@ -156,7 +156,7 @@ public class OrthogonalStretchedWinslow2D {
 
         if (orthogonalizeBoundary) {
             System.out
-                    .println("\nDo you wish the solution grid to have its South boundary orthogonalized? (y/n)");
+                    .println("\nDo you wish for the solution grid to have its South boundary orthogonalized? (y/n)");
 
             String sBInput = in.nextLine();
 
@@ -166,7 +166,7 @@ public class OrthogonalStretchedWinslow2D {
                 orthogonalizeSouth = false;
 
             System.out
-                    .println("\nDo you wish the solution grid to have its West boundary orthogonalized? (y/n)");
+                    .println("\nDo you wish for the solution grid to have its West boundary orthogonalized? (y/n)");
 
             String wBInput = in.nextLine();
 
@@ -176,7 +176,7 @@ public class OrthogonalStretchedWinslow2D {
                 orthogonalizeWest = false;
 
             System.out
-                    .println("\nDo you wish the solution grid to have its North boundary orthogonalized? (y/n)");
+                    .println("\nDo you wish for the solution grid to have its North boundary orthogonalized? (y/n)");
 
             String nBInput = in.nextLine();
 
@@ -186,7 +186,7 @@ public class OrthogonalStretchedWinslow2D {
                 orthogonalizeNorth = false;
 
             System.out
-                    .println("\nDo you wish the solution grid to have its East boundary orthogonalized? (y/n)");
+                    .println("\nDo you wish for the solution grid to have its East boundary orthogonalized? (y/n)");
 
             String eBInput = in.nextLine();
 
@@ -197,7 +197,7 @@ public class OrthogonalStretchedWinslow2D {
         }
 
         System.out
-                .println("\nDo you wish the solution grid to have its interior orthogonalized? (y/n)");
+                .println("\nDo you wish for the solution grid to have its interior orthogonalized? (y/n)");
 
         String oIInput = in.nextLine();
 
@@ -207,7 +207,7 @@ public class OrthogonalStretchedWinslow2D {
             orthogonalizeInterior = false;
 
         System.out
-                .println("\nDo you wish the solution grid to be stretched? (y/n)");
+                .println("\nDo you wish for the solution grid to be stretched? (y/n)");
 
         String dSInput = in.nextLine();
 
@@ -428,65 +428,70 @@ public class OrthogonalStretchedWinslow2D {
          * Set grid boundary nodes in following order: south, west, north, east
          */
 
-        // South boundary defined as gaussian function
-
         double x = startX;
         double y = startY;
 
         for (int i = 0; i < length; i++) {
-
             y = startY;
-
-            if (boundaryType == 2) {
-                // Gaussian hill
-                y = amplitude
-                        * (endY - startY)
-                        * Math.exp(-(x - (endX + startX) / 2.0)
-                                * (x - (endX + startX) / 2.0)
-                                / (2 * (endX - startX) * (0.06)
-                                        * (endX - startX) * (0.06))) + startY;
-            } else if (boundaryType == 3) {
-                // absolute value
-                if (x <= (startX + endX) / 2.0) {
-                    y = amplitude * (x - startX) + startY;
-                } else {
-                    y = amplitude * (endX - x) + startY;
-                }
-            } else if (boundaryType == 4) {
-                // greatest integer (tessellated)
-                if (x <= (startX + endX) / 2.0) {
-                    y = amplitude * Math.floor(1.0 / stepSize * (x - startX))
-                            + startY;
-                } else {
-                    y = -amplitude
-                            * Math.floor(1.0 / stepSize * (x - endX + stepSize))
-                            + startY;
-                }
-            } else if (boundaryType == 5) {
-                // square wave
-                y = amplitude
-                        * Math.floor(1.0 / ((endX - startX) / 2.0)
-                                * (x - startX)) + startY;
-
-            } else if (boundaryType == 6) {
-                // semi-ellipse
-                if (x >= (startX + endX) / 2.0 - radius
-                        && x <= (startX + endX) / 2.0 + radius)
+            
+            switch (boundaryType) {
+                case 2:
+                    // Gaussian hill
                     y = amplitude
-                            * Math.sqrt(radius * radius
-                                    - (x - (startX + endX) / 2)
-                                    * (x - (startX + endX) / 2)) + startY;
-                else
-                    y = startY;
+                            * (endY - startY)
+                            * Math.exp(-(x - (endX + startX) / 2.0)
+                                    * (x - (endX + startX) / 2.0)
+                                    / (2 * (endX - startX) * (0.06)
+                                            * (endX - startX) * (0.06))) + startY;
+                    break;
+                    
+                case 3:
+                    // absolute value
+                    if (x <= (startX + endX) / 2.0) {
+                        y = amplitude * (x - startX) + startY;
+                    } else {
+                        y = amplitude * (endX - x) + startY;
+                    }
+                    break;
+                
+                case 4:
+                    // greatest integer (tessellated)
+                    if (x <= (startX + endX) / 2.0) {
+                        y = amplitude * Math.floor(1.0 / stepSize * (x - startX))
+                                + startY;
+                    } else {
+                        y = -amplitude
+                                * Math.floor(1.0 / stepSize * (x - endX + stepSize))
+                                + startY;
+                    }
+                    break;
+                    
+                case 5:
+                    // square wave
+                    y = amplitude
+                            * Math.floor(1.0 / ((endX - startX) / 2.0)
+                                    * (x - startX)) + startY;
+                    break;
+                    
+                case 6:
+                    // semi-ellipse
+                    if (x >= (startX + endX) / 2.0 - radius
+                            && x <= (startX + endX) / 2.0 + radius)
+                        y = amplitude
+                                * Math.sqrt(radius * radius
+                                        - (x - (startX + endX) / 2)
+                                        * (x - (startX + endX) / 2)) + startY;
+                    else
+                        y = startY;
+                    break;
             }
-
+            
             x_old[0][i] = x;
             y_old[0][i] = y;
             x += deltaX;
         }
 
         // West, north and east boundaries defined as solid edges
-
         x = startX;
         y = startY;
 
@@ -1629,6 +1634,7 @@ public class OrthogonalStretchedWinslow2D {
         frame1.setContentPane(plot);
         frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame1.setVisible(true);
+        
     }
 
 }
