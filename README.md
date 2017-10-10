@@ -3,7 +3,7 @@ This is a powerful <b>2D orthogonal elliptic mesh (grid) generator</b> which wor
 It is capable of modifying the meshes with <b>stretching functions</b> and an <b>orthogonality adjustment</b> algorithm. This algorithm works by calculating curve slopes using a tilted parabola tangent line fitter (original discovery). The mesh generator is packaged as a Java program which can be compiled and executed via the command line. 
 
 The program allows one to choose
-from six different boundary types: rectangular, Gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. Then one must
+from six different boundary types: rectangular, Gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. One can then
 specify the coordinates of the mesh domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
 to the mesh, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course mesh and iteratively refine it to produce a <b>smooth mesh</b> with the given parameters and refinement options. 
 
@@ -22,7 +22,7 @@ Here are some examples of meshes generated with the program (<b><i>initial</i></
 A more complete collection can be found within the `Screenshots` folder.
 
 ## Mathematical Framework
-The algorithms implemented in this project are mainly founded upon the principles of differential geometry and tensor calculus. The most fundamental concept behind the mathematics governing this project is the transition between coordinate systems in order to obtain the solution to partial differential equations in the most efficient manner possible. More specifically in the context of this project, this implies transforming a set of equations written in Cartesian coordinates to curvilinear coordinates. This concept can be extended to any number of spatial dimensions, which will later be shown. However, a two-dimensional solution was developed in order to demonstrate the feasibility of generating smooth elliptic grids with the described specifications.
+The algorithms implemented in this project are mainly founded upon the principles of differential geometry and tensor calculus. The most fundamental concept behind the mathematics governing this project is the transition between coordinate systems in order to obtain the solution to partial differential equations in the most efficient manner possible. More specifically, in the context of this project, this implies transforming a set of equations written in Cartesian coordinates to curvilinear coordinates. This concept can be extended to any number of spatial dimensions, which will later be shown. However, a two-dimensional solution was developed in order to demonstrate the feasibility of generating smooth elliptic grids with the prescribed specifications.
 
 Consider a system of <i>n</i> dimensions which can be represented by the set of Cartesian coordinates <img src ="https://user-images.githubusercontent.com/16710726/31331568-d764704e-acb0-11e7-9bfe-f731ab10bc6a.gif" /> and the set of curvilinear coordinates <img src = "https://user-images.githubusercontent.com/16710726/31331564-d3a35088-acb0-11e7-9b25-68c3bcfdec27.gif"/>. We define the covariant metric tensor <i>g<sub>ij</sub></i> to be:
 
@@ -153,6 +153,21 @@ The default stretching functions used in the program are
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31335711-bfe475f2-acc1-11e7-8573-2032fa4f471c.gif" /></p>
 
 where |*∝*| << 1 and |*β*| << 1. The parameters *∝* and *β*, when positive, indicate how much stretching occurs in the *x* and *y* directions respectively. When these values are negative, compression of grid lines will occur instead.
+
+## Extension to Higher Dimensions
+If we wished to extend the elliptic solver to 3D, we would need to develop equations for transitioning from a curvilinear coordinate system (*ξ*, *η*, *ς*) to a 3D Cartesian coordinate system (*x*, *y*, *z*). Using the same elliptic model as before, we get the 3D version of the Winslow equations
+
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31380152-7e1f4d78-ad7e-11e7-8302-54131024b983.gif" /></p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31380154-7e26f85c-ad7e-11e7-973a-a818ada37008.gif" /></p>
+<p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31380153-7e1fcb7c-ad7e-11e7-9052-8287e4de8d3b.gif" /></p>
+
+where each of the metric tensor coefficients are determined by taking the cofactors of the contraviarant tensor matrix. The contravariant tensor matrix is used to obtain the coefficients for the Winslow equations, which are the inverse of the Laplace equations as stated before.
+
+In general, if we wish to extend our elliptic mesh solver to *n* dimensions, then we will have *n* sets of equations each with <img src="https://user-images.githubusercontent.com/16710726/31380626-d833cf40-ad7f-11e7-834f-9faf73eb2265.gif" /> terms. This renders the problem gradually more and more difficult to solve for higher dimensions with the existing elliptic scheme, implying that a different type of PDE might be needed in these cases.
+
+Another complication that arises in higher dimensions is adjusting grid lines to enforce orthogonality. Using the aforementioned algorithm for adjusting grid lines to achieve either complete or partial orthogonality on the boundary, we would need to iteratively solve three sets of two linear equations for each node in the mesh, as well as solve three trigonemtric equations per iteration to compute the tangents.
+
+For two dimensions, if our grid domain was of size *n* x *n*, and we assumed an average of *k* iterations per mesh node, then our runtime complexity would be approximately <img src ="https://user-images.githubusercontent.com/16710726/31381680-3d5c9110-ad83-11e7-8bcd-f7d9f98d69a4.gif" />. However for three dimensions, our runtime complexity would be <img src ="https://user-images.githubusercontent.com/16710726/31381681-3d5ee9ba-ad83-11e7-95b4-fac0c46d5f9a.gif" />. If our domain had a side length of 100 and for each node the solver took 10 iterations in the 2D version and 25 iterations in the 3D version, then the three dimensional version would take over 1000 times longer to return a solution. This means we would definitely need to seek a more efficient and powerful algorithm. However, another issue that may arise is that for three dimensions, orthognal solutions to smooth meshes are very rare, and even getting a solution with the most efficient algorithm might be impossible for many cases.
 
 ## Mesh Quality Analysis Report
 In order to determine the quality of the resulting mesh, it was necessary to construct an objective means of quality measurement. Therefore, several <b>statistical procedures</b> were implemented in the program to produce a <b>meaningful mesh quality analysis report</b>. The metrics which are presented are divided into the following categories:
