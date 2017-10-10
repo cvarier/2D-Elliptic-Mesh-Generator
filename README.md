@@ -5,7 +5,7 @@ It is capable of modifying the meshes with <b>stretching functions</b> and an <b
 The program allows one to choose
 from six different boundary types: rectangular, Gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. One can then
 specify the coordinates of the mesh domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
-to the mesh, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial course mesh and iteratively refine it to produce a <b>smooth mesh</b> with the given parameters and refinement options. 
+to the mesh, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial coarse mesh and iteratively refine it to produce a <b>smooth mesh</b> with the given parameters and refinement options. 
 
 A distinct feature of the elliptic mesh solver is that it <b>corrects overlapping and misplaced grid lines</b> very well. A detailed analysis of the quality of the resulting will also be provided. 
 
@@ -28,7 +28,7 @@ Consider a system of <i>n</i> dimensions which can be represented by the set of 
 
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31331597-00423ea6-acb1-11e7-896d-48ba46dd996d.gif"/></p>
 
-where each of the partial derivatives comes from the definition of the covariant base vectors. Each of these base bectors describe how one coordinate system changes with respect to another, when any particular coordinate is held fixed. For our two-dimensional problem, we can expand these sums to yield the following expressions for the metric tensors:
+where each of the partial derivatives comes from the definition of the covariant base vectors. Each of these base vectors describe how one coordinate system changes with respect to another, when any particular coordinate is held fixed. For our two-dimensional problem, we can expand these sums to yield the following expressions for the metric tensors:
 
 <p align="center">&nbsp&nbsp&nbsp<img src="https://user-images.githubusercontent.com/16710726/31332560-d5ca47aa-acb4-11e7-9524-27911f357c6b.gif" /></p>
 <p align="center">&nbsp&nbsp&nbsp<img src="https://user-images.githubusercontent.com/16710726/31332553-d0a63a04-acb4-11e7-80c7-b2340ca48d0f.gif" /></p>
@@ -161,13 +161,13 @@ If we wished to extend the elliptic solver to 3D, we would need to develop equat
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31380154-7e26f85c-ad7e-11e7-973a-a818ada37008.gif" /></p>
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31380153-7e1fcb7c-ad7e-11e7-9052-8287e4de8d3b.gif" /></p>
 
-where each of the metric tensor coefficients are determined by taking the cofactors of the contraviarant tensor matrix. The contravariant tensor matrix is used to obtain the coefficients for the Winslow equations, which are the inverse of the Laplace equations as stated before.
+where each of the metric tensor coefficients is determined by taking the cofactors of the contravariant tensor matrix. The contravariant tensor matrix is used to obtain the coefficients for the Winslow equations, which are the inverse of the Laplace equations as stated before.
 
 In general, if we wish to extend our elliptic mesh solver to *n* dimensions, then we will have *n* sets of equations each with *n*!/(2(*n*-2)!) + *n* terms. This renders the problem gradually more and more difficult to solve for higher dimensions with the existing elliptic scheme, implying that a different type of PDE might be needed in these cases.
 
 Another complication that arises in higher dimensions is adjusting grid lines to enforce orthogonality. Using the aforementioned algorithm for adjusting grid lines to achieve either complete or partial orthogonality on the boundary, we would need to iteratively solve three sets of two linear equations for each node in the mesh, as well as solve three trigonometric equations per iteration to compute the tangents.
 
-For two dimensions, if our grid domain was of size *n* x *n*, and we assumed an average of *k* iterations per mesh node, then our runtime complexity would be approximately <img src ="https://user-images.githubusercontent.com/16710726/31381680-3d5c9110-ad83-11e7-8bcd-f7d9f98d69a4.gif" />. However for three dimensions, our runtime complexity would be <img src ="https://user-images.githubusercontent.com/16710726/31381681-3d5ee9ba-ad83-11e7-95b4-fac0c46d5f9a.gif" />. If our domain had a side length of 100 and for each node the solver took 10 iterations in the 2D version and 25 iterations in the 3D version, then the 3D version would take over 1000 times longer to return a solution. This means we would definitely need to seek a more efficient and powerful algorithm. However, another issue that may arise is that for three dimensions, orthognal solutions to smooth meshes are very rare, and even getting a solution with the most efficient algorithm might be impossible for many cases.
+For two dimensions, if our grid domain was of size *n* x *n*, and we assumed an average of *k* iterations per mesh node, then our runtime complexity would be approximately <img src ="https://user-images.githubusercontent.com/16710726/31381680-3d5c9110-ad83-11e7-8bcd-f7d9f98d69a4.gif" />. However for three dimensions, our runtime complexity would be <img src ="https://user-images.githubusercontent.com/16710726/31381681-3d5ee9ba-ad83-11e7-95b4-fac0c46d5f9a.gif" />. If our domain had a side length of 100 and for each node, the solver took 10 iterations in the 2D version and 25 iterations in the 3D version, then the 3D version would take over 1000 times longer to return a solution. This means we would definitely need to seek a more efficient and powerful algorithm. However, another issue that may arise is that for three dimensions, orthogonal solutions to smooth meshes are very rare, and even getting a solution with the most efficient algorithm might be impossible for many cases.
 
 ## Mesh Quality Analysis Report
 In order to determine the quality of the resulting mesh, it was necessary to construct an objective means of quality measurement. Therefore, several <b>statistical procedures</b> were implemented in the program to produce a <b>meaningful mesh quality analysis report</b>. The metrics which are presented are divided into the following categories:
