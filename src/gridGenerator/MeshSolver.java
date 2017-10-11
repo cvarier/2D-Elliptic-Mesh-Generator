@@ -140,17 +140,19 @@ public class MeshSolver {
                 double g11 = x1 * x1 + y1 * y1;
                 double g22 = x2 * x2 + y2 * y2;
 
-                // f1 = alpha*cos(1/50*pi*x)+k, f2 = (e^(beta*eta)-1)/(e^beta-1)
                 double f1Prime = 0, f1DoublePrime = 0;
-                if (i <= endX / 2) {
+                if (i <= (length - 2)/2) {
+                    alpha = Math.abs(alpha);
                     f1Prime = alpha * (Math.pow(e, alpha * i))
                             / (Math.pow(e, alpha) - 1);
                     f1DoublePrime = alpha * alpha * (Math.pow(e, alpha * i))
                             / (Math.pow(e, alpha) - 1);
                 } else {
-                    f1Prime = -alpha * (Math.pow(e, alpha * i))
+                    alpha = -Math.abs(alpha);
+                    double iReverse = (length -2)/2 - i;
+                    f1Prime = alpha * (Math.pow(e, alpha * iReverse))
                             / (Math.pow(e, alpha) - 1);
-                    f1DoublePrime = -alpha * alpha * (Math.pow(e, alpha * i))
+                    f1DoublePrime = alpha * alpha * (Math.pow(e, alpha * iReverse))
                             / (Math.pow(e, alpha) - 1);
                 }
 

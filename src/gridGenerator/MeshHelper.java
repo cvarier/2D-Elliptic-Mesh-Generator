@@ -26,6 +26,9 @@ public class MeshHelper {
         for (int i = 0; i < length; i++) {
             y = startY;
             
+/*            // Crazy function
+            y = 50*Math.exp(-((10*x/60)-3.5)*((10*x/60)-3.5))+50*Math.exp(-((6*x/60)-7.0)*((6*x/60)-7.0));*/
+            
             switch (boundaryType) {
                 case 2:
                     // Gaussian hill
@@ -88,7 +91,7 @@ public class MeshHelper {
         y = startY;
 
         for (int j = 0; j < height; j++) {
-            x_old[j][0] = x;
+            x_old[j][0] = x; //10*Math.exp(-((6*y/60)-7.0)*((6*y/60)-7.0)); // <--crazy function; 
             y_old[j][0] = y;
             y += deltaY;
         }
@@ -98,7 +101,9 @@ public class MeshHelper {
 
         for (int i = 0; i < length; i++) {
             x_old[height - 1][i] = x;
-            y_old[height - 1][i] = y;
+            y_old[height - 1][i] = y; /*-5*Math.exp(-((20*x/60)-3.5)*((20*x/60)-3.5))-
+                            20*Math.exp(-((10*x/60)-7.0)*((10*x/60)-7.0))-
+                            15*Math.exp(-((26*x/100)-20.0)*((26*x/100)-20.0))+100;*///<-- crazy function; 
             x += deltaX;
         }
 
@@ -111,7 +116,8 @@ public class MeshHelper {
 
         for (int j = 0; j < height; j++) {
 
-            x_old[j][length - 1] = x;
+            x_old[j][length - 1] = x; //-10*Math.exp(-((10*y/60)-3.5)*((10*y/60)-3.5))-30*Math.exp(-((6*y/60)-7.0)*((6*y/60)-7.0))+100; 
+                            // <-- crazy function 
             y_old[j][length - 1] = y;
 
             if (boundaryType == 5) {

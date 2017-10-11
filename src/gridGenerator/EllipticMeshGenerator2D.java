@@ -57,6 +57,8 @@ public class EllipticMeshGenerator2D {
     private static Plot2DPanel plot;
     private static Scanner in;
     private static PrintWriter outputInfo, outputInitial, outputFinal;
+    private static double animationFPS = 1;
+    private static int animationFrameCount = 5;
 
     public static void main(String args[]) {
 
@@ -297,7 +299,6 @@ public class EllipticMeshGenerator2D {
         // ----------- FOR ANIMATION ------------
         
         // Specifiy frames per second and slowdown factor
-        int fps = 2;
         double slowMo = 1.0;
         ImageOutputStream animationOutput = null;
         GifSequenceWriter animationWriter = null;
@@ -305,7 +306,7 @@ public class EllipticMeshGenerator2D {
         try {
             // Initialize the gif writer
             animationOutput = new FileImageOutputStream(new File("animatedMesh.gif"));
-            animationWriter = new GifSequenceWriter(animationOutput, 1, (int)(1000*slowMo/fps), true);
+            animationWriter = new GifSequenceWriter(animationOutput, 1, (int)(1000*slowMo/animationFPS), true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -391,9 +392,9 @@ public class EllipticMeshGenerator2D {
 
             count++;
             
-            // if count is a multiple of 10, print the grid to produce an animated effect
+            // if count is a multiple of animationFrameCount, print the grid to produce an animated effect
             
-            if (count % 10 == 0) {
+            if (count % animationFrameCount == 0) {
                 Color darkGreen = new Color(71, 168, 54);
                 String isOrthogonalized = (orthogonalizeBoundary || orthogonalizeInterior) ? "orthogonalized"
                         : "non-orthogonalized";
