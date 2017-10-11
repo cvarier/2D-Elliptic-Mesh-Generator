@@ -435,7 +435,6 @@ public class EllipticMeshGenerator2D {
     public static void setUpGrid() {
 
         plotFont = new Font(Font.MONOSPACED, Font.PLAIN, 12);
-
         plot = new Plot2DPanel();
 
     }
