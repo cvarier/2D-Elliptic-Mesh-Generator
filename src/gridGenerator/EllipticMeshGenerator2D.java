@@ -2,11 +2,18 @@ package gridGenerator;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import javax.imageio.stream.FileImageOutputStream;
+import javax.imageio.stream.ImageOutputStream;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -286,12 +293,32 @@ public class EllipticMeshGenerator2D {
         outputInitial.println();
         outputInitial.println("   X\t\t\t\tY");
         outputInitial.println();
+        
+        // ----------- FOR ANIMATION ------------
+        
+        // Specifiy frames per second and slowdown factor
+        int fps = 2;
+        double slowMo = 1.0;
+        ImageOutputStream animationOutput = null;
+        GifSequenceWriter animationWriter = null;
+
+        try {
+            // Initialize the gif writer
+            animationOutput = new FileImageOutputStream(new File("animatedMesh.gif"));
+            animationWriter = new GifSequenceWriter(animationOutput, 1, (int)(1000*slowMo/fps), true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         setUpGrid();
-        plotInterior(initialName, Color.blue, x_old, y_old, true);
+        plotInterior(initialName, Color.blue, x_old, y_old, true, true);
         plotHorizontalGridLines(initialName, Color.blue, x_old, y_old);
         plotVerticalGridLines(initialName, Color.blue, x_old, y_old);
-        printGrid(initialName, x_old, y_old);
+        try {
+            printGrid(initialName, x_old, y_old, true, animationWriter);
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
 
         /*
          * Set old matrices to new
@@ -363,6 +390,28 @@ public class EllipticMeshGenerator2D {
             meshHelper.copyMatricesNewToOld(y_new, y_old, omegaSOR);
 
             count++;
+            
+            // if count is a multiple of 10, print the grid to produce an animated effect
+            
+            if (count % 10 == 0) {
+                Color darkGreen = new Color(71, 168, 54);
+                String isOrthogonalized = (orthogonalizeBoundary || orthogonalizeInterior) ? "orthogonalized"
+                        : "non-orthogonalized";
+                String isStretched = doStretch ? "stretched" : "non-stretched";
+
+                String name = "Frame " + count + " " + isOrthogonalized + ", " + isStretched
+                        + " grid with " + boundaryName + " boundary";
+                
+                setUpGrid();
+                plotInterior(name, darkGreen, x_new, y_new, false, false);
+                plotHorizontalGridLines(name, darkGreen, x_new, y_new);
+                plotVerticalGridLines(name, darkGreen, x_new, y_new);
+                try {
+                    printGrid(name, x_new, y_new, true, animationWriter);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
         }
 
@@ -389,10 +438,21 @@ public class EllipticMeshGenerator2D {
         outputFinal.println();
 
         setUpGrid();
-        plotInterior(finalName, darkGreen, x_new, y_new, false);
+        plotInterior(finalName, darkGreen, x_new, y_new, false, true);
         plotHorizontalGridLines(finalName, darkGreen, x_new, y_new);
         plotVerticalGridLines(finalName, darkGreen, x_new, y_new);
-        printGrid(finalName, x_new, y_new);
+        try {
+            printGrid(finalName, x_new, y_new, true, animationWriter);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        
+        try {
+            animationWriter.close();
+            animationOutput.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         /*
          * Assess the grid's quality by determining its orthogonality and aspect
@@ -428,6 +488,7 @@ public class EllipticMeshGenerator2D {
         outputInitial.close();
         outputFinal.close();
         outputInfo.close();
+       
 
     }
 
@@ -441,7 +502,7 @@ public class EllipticMeshGenerator2D {
 
     // Plot interior grid nodes
     public static void plotInterior(String name, Color color, double[][] phi1,
-            double[][] phi2, boolean printInitial) {
+            double[][] phi2, boolean printInitial, boolean writeToFile) {
 
         // Get X and Y coordinates of all nodes into separate arrays
         double[] X = new double[length * height], Y = new double[length
@@ -453,14 +514,16 @@ public class EllipticMeshGenerator2D {
                 for (int i = 0; i < length; i++) {
                     X[iter] = phi1[j][i];
                     Y[iter] = phi2[j][i];
-                    if (printInitial) {
-                        outputInitial.printf("%.10f \t\t %.10f", X[iter],
-                                Y[iter]);
-                        outputInitial.println();
-                    } else {
-                        outputFinal
-                                .printf("%.10f \t\t %.10f", X[iter], Y[iter]);
-                        outputFinal.println();
+                    if (writeToFile) {
+                        if (printInitial) {
+                            outputInitial.printf("%.10f \t\t %.10f", X[iter],
+                                    Y[iter]);
+                            outputInitial.println();
+                        } else {
+                            outputFinal
+                                    .printf("%.10f \t\t %.10f", X[iter], Y[iter]);
+                            outputFinal.println();
+                        }
                     }
                     iter++;
                 }
@@ -508,7 +571,8 @@ public class EllipticMeshGenerator2D {
     }
 
     // Display the grid
-    public static void printGrid(String name, double[][] phi1, double[][] phi2) {
+    public static void printGrid(String name, double[][] phi1, double[][] phi2, boolean animate, 
+                    GifSequenceWriter gifWriter) throws IOException {
 
         // Find the farthest nodes away from the center on the boundaries
         double maxl = phi1[0][0], maxt = phi2[height - 1][0], maxr = phi1[0][length - 1], maxb = phi2[0][0];
@@ -545,7 +609,24 @@ public class EllipticMeshGenerator2D {
         frame1.setSize(1000, 1000);
         frame1.setContentPane(plot);
         frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame1.setVisible(true);
+        
+        if (!animate) {
+            frame1.setVisible(true);
+        } else {
+            //frame1.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame1.setVisible(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // Create image from JFrame and write to the animation
+            BufferedImage image = new BufferedImage(1000,1000, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics2D = image.createGraphics();
+            frame1.paint(graphics2D);
+            gifWriter.writeToSequence(image);
+            //frame1.dispatchEvent(new WindowEvent(frame1, WindowEvent.WINDOW_CLOSING));
+        }
         
     }
 
