@@ -14,8 +14,8 @@ import org.math.plot.Plot2DPanel;
 import org.math.plot.plotObjects.BaseLabel;
 
 /**
- * 2D orthogonal elliptic grid generator using Laplace equations, univariate
- * stretching functions and tilted parabola tangent fitter.
+ * 2D orthogonal elliptic mesh generator using Winslow equations, univariate
+ * stretching functions and a tilted parabola tangent fitter.
  * 
  * Direction of solution: West to East Sweep with South to North traverse.
  * 

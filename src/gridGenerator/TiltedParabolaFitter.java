@@ -23,7 +23,6 @@ public class TiltedParabolaFitter {
 		rightNext = bInitial;
 		
 		while (leftNext != leftPrev || rightNext != rightPrev) {
-			
 			leftPrev = leftNext;
 			rightPrev = rightNext;
 			
@@ -33,7 +32,6 @@ public class TiltedParabolaFitter {
 				rightNext = m;
 			else
 				leftNext = m;
-			
 		}
 		
 		return (leftNext + rightNext)/2; 
