@@ -7,7 +7,7 @@ from six different boundary types: rectangular, Gaussian, absolute value, greate
 specify the coordinates of the mesh domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
 to the mesh, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial coarse mesh and iteratively refine it to produce a <b>smooth mesh</b> with the given parameters and refinement options. 
 
-A distinct feature of the elliptic mesh solver is that it <b>corrects overlapping and misplaced grid lines</b> very well. A detailed analysis of the quality of the resulting will also be provided. 
+A distinct feature of the elliptic mesh solver is that it <b>corrects overlapping and misplaced grid lines</b> very well. A detailed analysis of the quality of the resulting mesh will also be provided. 
 
 ## Screenshots
 Here are some examples of meshes generated with the program (<b><i>initial</i></b> in <b>blue</b> and <b><i>final</i></b> in <b>green</b>):
