@@ -94,7 +94,7 @@ for the vertical grid line *V* and the horizontal grid line *H* at a given itera
 ## Stretching Functions
 In order to further improve the quality of the mesh, one can introduce <b>univariate stretching functions</b> to either compress or expand grid lines in order to correct non-uniformity where grid lines are more or less dense. These functions are arbitrarily chosen and only reflect the distribution of grid lines. 
 
-We can derive a new set of equations by combining our previously established differential model for grid generation and a set of univariate stretching functions of our choice. In order to do so in a straightforward manner, we can transform our Cartesian coordinates (*x*, *y*) to a new set of coordinates (*χ*, *σ*) which exist in a different space, *χσ*, called the parameter space. We define our stretching functions, *f<sub>1</sub>* and *f<sub>2</sub>* as onto and one-to-one univariate functions of *ξ* and *η* respectively. They are described as follows: 
+We can derive a new set of equations by combining our previously established differential model for grid generation and a set of univariate stretching functions of our choice. In order to do so in a straightforward manner, we can transform our Cartesian coordinates (*x*, *y*) to a new set of coordinates (*χ*, *σ*) which exists in a different space, *χσ*, called the parameter space. We define our stretching functions, *f<sub>1</sub>* and *f<sub>2</sub>* as onto and one-to-one univariate functions of *ξ* and *η* respectively. They are described as follows: 
 
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31361649-47fd6178-ad22-11e7-8721-ff9e2a12096b.gif" /></p>
 <p align="center">and</p>
