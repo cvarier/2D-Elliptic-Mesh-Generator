@@ -84,7 +84,7 @@ A remarkable result from the research was the development of an accurate method 
 
 whose roots can be solved for using the bisection method, which represent the angular position of the parabola (can be improved with Newton's method). 
 
-The same process is applied to the three oppositely adjacent nodes. From this, a suitable linear approximation is obtained, and the adjustment is determined by plugging the slopes of the two linear functions into the linear equation relating the two derived using basic analytical geometry. This describes the system of equations
+The same process is applied to the three oppositely adjacent nodes. From this, a suitable linear approximation is obtained, and the adjustment is determined by plugging the slopes of the two linear functions into the linear equation relating the two derived using basic analytic geometry. This describes the system of equations
 
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31161932-6a369012-a8a8-11e7-994c-ba75d709aedd.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162043-214b9144-a8a9-11e7-9905-252cfce64f09.gif" /></p>
