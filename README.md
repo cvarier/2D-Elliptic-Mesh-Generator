@@ -100,7 +100,7 @@ We can derive a new set of equations by combining our previously established dif
 <p align="center">and</p>
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31361650-47fe6f82-ad22-11e7-8287-0efd31004c6a.gif" /></p>
 
-If we define the mapping from physical space to parameter space as the same elliptic system as before, we get the equations
+If we define the mapping from physical space to parameter space as the same elliptic system as before, we get the equations:
 
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362584-45ee28b8-ad27-11e7-935d-4384b68feb87.gif" /></p>
 <p align="center">and</p>
@@ -126,12 +126,12 @@ Similarly for *η*, we get:
 
 <p align="center"><img src ="https://user-images.githubusercontent.com/16710726/31362664-b087ab86-ad27-11e7-9b18-1d69d0bf99f8.gif" /></p>
 
-However, we wish to solve the inverse problem as before, and thus in finding the inverse of these equations, we obtain the Poisson system 
+However, we wish to solve the inverse problem as before, and thus in finding the inverse of these equations, we obtain the Poisson system:
 
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162397-29a18d7e-a8ab-11e7-910c-34050762fdf6.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31162408-40ed191c-a8ab-11e7-86bb-f82e3f92fe87.gif" /></p>
 
-However, if we wish to maintain orthogonality everywhere in the grid, then we must eliminate the *g<sub>12</sub>* terms to get the equations
+However, if we wish to maintain orthogonality everywhere in the grid, then we must eliminate the *g<sub>12</sub>* terms to get the equations:
 
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31363152-768f1600-ad2a-11e7-9353-deadd6ddb6db.gif" /></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/16710726/31363168-91f09108-ad2a-11e7-86aa-1407ba271ec5.gif" /></p>
