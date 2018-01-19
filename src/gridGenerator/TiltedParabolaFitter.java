@@ -1,7 +1,7 @@
 package gridGenerator;
 
 /**
- * Curve fits a set of three points with a parabola at an angle theta such that the middle point
+ * Class which curve fits a set of three points with a parabola at an angle theta such that the middle point
  * (between (x1,y1) and (x2,y2)) is the vertex.
  * 
  * @author Chaitanya Varier
@@ -39,7 +39,7 @@ public class TiltedParabolaFitter {
 	}
 	
 	// The trig equation in functional form to be solved for
-	public static double f (double theta, double x1, double y1, double x2, double y2) {
+	private static double f (double theta, double x1, double y1, double x2, double y2) {
 		
 		return (-x1*Math.sin(theta) + y1*Math.cos(theta)) 
 				*(x2*Math.cos(theta) + y2*Math.sin(theta))*(x2*Math.cos(theta) + y2*Math.sin(theta)) 
