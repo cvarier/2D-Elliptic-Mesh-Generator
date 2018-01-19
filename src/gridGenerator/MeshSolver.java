@@ -1,5 +1,12 @@
 package gridGenerator;
 
+/**
+ * Class containing methods which perform the algorithmic computations throughout the mesh generation process.
+ * 
+ * @author Chaitanya Varier
+ * @version 08/05/2016
+ */
+
 public class MeshSolver {
 
     public static final double e = 2.7182818284590452;
