@@ -1,5 +1,12 @@
 package gridGenerator;
 
+/**
+ * Class containing helper methods for setting up the visualized meshes at different stages throughout the generation process.
+ * 
+ * @author Chaitanya Varier
+ * @version 08/05/2016
+ */
+
 public class MeshHelper {
     
     private int length, height;
