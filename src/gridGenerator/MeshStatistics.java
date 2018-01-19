@@ -2,6 +2,13 @@ package gridGenerator;
 
 import java.io.PrintWriter;
 
+/**
+ * Class for analyzing the quality of the generated meshes and reporting key statistics.
+ * 
+ * @author Chaitanya Varier
+ * @version 08/05/2016
+ */
+
 public class MeshStatistics {
     
     private static final double PI = 3.141592653589793238;
