@@ -1,7 +1,7 @@
 package gridGenerator;
 
 /**
- * Class containing methods which perform the algorithmic computations throughout the mesh generation process.
+ * Class containing methods which perform the main algorithmic computations throughout the mesh generation process.
  * 
  * @author Chaitanya Varier
  * @version 08/05/2016
