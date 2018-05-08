@@ -196,8 +196,8 @@ I wrote this software independently for Prof. Jonathon Sumner at Dawson College,
 ## References
 I gleaned all the necessary mathematical knowledge for completing this project from the following sources:
 
-* Farrashkhalvat, M., and J. P. Miles. Basic structured grid generation with an introduction to unstructured grid generation. Oxford: Butterworth Heinemann, 2003. Print.
+* Farrashkhalvat, M., and J. P. Miles. *Basic structured grid generation with an introduction to unstructured grid generation*. Oxford: Butterworth Heinemann, 2003. Print.
 
-* Versteeg, H.K, and W. Malalasekera. An introduction to computational fluid dynamics: the finite volume method. Harlow: Pearson Education, 2011. Print.
+* Versteeg, H.K, and W. Malalasekera. *An introduction to computational fluid dynamics: the finite volume method*. Harlow: Pearson Education, 2011. Print.
 
-* Knupp, Patrick M., and Stanly Steinberg. Fundamentals of grid generation. Boca Raton: CRC Press, 1994. Print.
+* Knupp, Patrick M., and Stanly Steinberg. *Fundamentals of grid generation*. Boca Raton: CRC Press, 1994. Print.
