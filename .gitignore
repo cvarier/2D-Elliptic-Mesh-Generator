@@ -1,2 +1,7 @@
 .idea/
 *.iml
+*.class
+animatedMesh.gif
+Final_Grid.txt
+Initial_Grid.txt
+Grid_Info.txt
