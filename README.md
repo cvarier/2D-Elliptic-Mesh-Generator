@@ -13,6 +13,13 @@ A distinct feature of the elliptic mesh solver is that it <b>corrects overlappin
 To run the pre-built jar file of this project, ensure you have Java version >= 1.8 installed and execute the following on the command line:
 `java -jar 2DEllipticMeshGenerator.jar`. From here, simply follow the prompts to start the generation of a mesh. As the solver runs, you will see a new grid frame popup for every few iterations completed. This allows you to see the progress of the mesh solution as it converges in real time.
 
+## Building the Source From Scratch
+If you'd like to contribute to the development of this project, you may want to build the source files from scratch and test your modifications. I've structured this project using Maven to help simplify the build process and manage dependencies more easily. To build the project, follow these steps:
+
+1. Ensure you have the latest version of Maven installed (https://maven.apache.org/download.cgi).
+2. Once you're done editing the source files, within the root directory of the repo, run `mvn package`.
+3. If the build completes successfuly, then you will find an updated executable JAR with the following path: `target/2DEllipticMeshGenerator-1.0-SNAPSHOT-jar-with-dependencies`. To run your changes, execute `java -jar target/2DEllipticMeshGenerator-1.0-SNAPSHOT-jar-with-dependencies`.
+
 ## Screenshots
 Here are some examples of meshes generated with the program (<b><i>initial</i></b> in <b>blue</b> and <b><i>final</i></b> in <b>green</b>):
 
