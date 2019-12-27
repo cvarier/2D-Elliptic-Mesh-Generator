@@ -15,7 +15,7 @@ To run the pre-built jar file of this project, ensure you have Java version >= 1
 
 Once the mesh has been generated, you will find 4 new files in the root directory: `animatedMesh.gif`, `Initial_Grid.txt`, `Final_Grid.txt` and `Grid_Info.txt`. 
 
-- `animatedMesh.gif` will show you the time-evolution of the mesh solution from the initial grid to the final frid in its converged state.
+- `animatedMesh.gif` will show you the time-evolution of the mesh solution from the initial grid to the final grid in its converged state.
 
 - `Initial_Grid.txt` contains the physical XY-coordinates for each point in the initial mesh
 
