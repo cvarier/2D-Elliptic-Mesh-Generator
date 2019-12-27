@@ -17,11 +17,11 @@ Once the mesh has been generated, you will find 4 new files in the root director
 
 - `animatedMesh.gif` will show you the time-evolution of the mesh solution from the initial grid to the final grid in its converged state.
 
-- `Initial_Grid.txt` contains the physical XY-coordinates for each point in the initial mesh
+- `Initial_Grid.txt` contains the physical XY-coordinates for each point in the initial mesh.
 
-- `Final_Grid.txt` contains the physical XY-coordinates for each point in the final solution
+- `Final_Grid.txt` contains the physical XY-coordinates for each point in the final solution.
 
-- `Grid_Info.txt` contains the statistical quality analysis report for the initial and final meshes
+- `Grid_Info.txt` contains the statistical quality analysis report for the initial and final meshes.
 
 ## Building the Source From Scratch
 If you'd like to contribute to the development of this project, you may want to build the source files from scratch and test your modifications. I've structured this project using Maven to help simplify the build process and manage dependencies more easily. To build the project, follow these steps:
