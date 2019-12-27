@@ -13,6 +13,16 @@ A distinct feature of the elliptic mesh solver is that it <b>corrects overlappin
 To run the pre-built jar file of this project, ensure you have Java version >= 1.8 installed and execute the following on the command line:
 `java -jar 2DEllipticMeshGenerator.jar`. From here, simply follow the prompts to start the generation of a mesh. As the solver runs, you will see a new grid frame popup for every few iterations completed. This allows you to see the progress of the mesh solution as it converges in real time.
 
+Once the mesh has been generated, you will find 4 new files in the root directory: `animatedMesh.gif`, `Initial_Grid.txt`, `Final_Grid.txt` and `Grid_Info`. 
+
+- `animatedMesh.gif` will show you the time-evolution of the mesh solution from the initial grid to the final frid in its converged state.
+
+- `Initial_Grid.txt` contains the physical XY-coordinates for each point in the initial mesh
+
+- `Final_Grid.txt` contains the physical XY-coordinates for each point in the final solution
+
+- `Grid_Info.txt` contains the statistical quality analysis report for the initial and final meshes
+
 ## Building the Source From Scratch
 If you'd like to contribute to the development of this project, you may want to build the source files from scratch and test your modifications. I've structured this project using Maven to help simplify the build process and manage dependencies more easily. To build the project, follow these steps:
 
