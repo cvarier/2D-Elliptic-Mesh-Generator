@@ -1,10 +1,10 @@
 # 2D Elliptic Mesh Generator
-This is a <b>2D orthogonal elliptic mesh (grid) generator</b> which works by solving the <b>Winslow partial differential equations</b>.
+This is a <b>2D orthogonal elliptic mesh (grid) generator</b> which works by solving the <b>Winslow partial differential equations</b> (Elliptic PDEs).
 It is capable of modifying the meshes with <b>stretching functions</b> and an <b>orthogonality adjustment</b> algorithm. This algorithm works by calculating curve slopes using a tilted parabola tangent line fitter. The mesh generator is packaged as a Java program which can be compiled and executed via the command line. 
 
 The program allows one to choose
 from six different boundary types: rectangular, Gaussian, absolute value, greatest-integer, forwards step and semi-ellipse. One can then
-specify the coordinates of the mesh domain (<b><i>warning: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
+specify the coordinates of the mesh domain (<b><i>note: the domain must be perfectly square</i></b>). Finally, one can choose to add refinements
 to the mesh, such as <b>orthogonality</b> adjustment and <b>stretching functions</b>. The program will then generate an initial coarse mesh and iteratively refine it to produce a <b>smooth mesh</b> with the given parameters and refinement options. 
 
 A distinct feature of the elliptic mesh solver is that it <b>corrects overlapping and misplaced grid lines</b> very well. A detailed analysis of the quality of the resulting mesh will also be provided as part of the program output. 
