@@ -191,6 +191,9 @@ In the above list, "angle" refers to the angle of intersection of grid lines at 
 ## Libraries Used
 * JMathPlot by Yann Richet
 
+## Recognition
+- Cited in the CFD Open Series textbook, [*Structure Meshing for CFD*](https://www.researchgate.net/publication/339295881_Structure_Meshing_for_CFD)
+
 ## License
 © Chaitanya Varier 2017. This software is protected under the MIT License.
 
